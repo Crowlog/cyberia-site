@@ -1,0 +1,189 @@
+/* base.css */
+
+@font-face {
+  font-family: "nexa";
+  font-display: swap;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  src: url("/fonts/nexa.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "ark pixel";
+  font-display: swap;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  src: url("/fonts/ark_pixel.woff2") format("woff2"), url("/fonts/ark_pixel.ttf") format("truetype");
+}
+
+:root {
+  --col-accent: rgb(182, 119, 128);
+  --col-text: rgb(248, 243, 255);
+  --col-base: rgb(14, 14, 14);
+
+  --col-accent-trans: rgba(182, 119, 128, 0.15);
+  --col-text-trans: rgba(248, 243, 255, 0.2);
+  --col-base-trans: rgba(15, 15, 12, 0.01);
+
+  --fnt-general: "ark pixel", sans-serif;
+  --fnt-header: "nexa", sans-serif;
+
+  --mrg-default: 1rem;
+  --pad-default: 1rem;
+
+  --brd-default: 5px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--col-text);
+  font-family: var(--fnt-general);
+  background-color: black;
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--fnt-header);
+}
+h1 {
+  color: var(--col-accent);
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  color: var(--col-accent);
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+h4 {
+  font-size: 1.2rem;
+}
+
+p {
+  line-height: 1.25;
+}
+
+a {
+  color: var(--col-accent);
+  text-decoration: none;
+  transition: all ease-in-out 0.1s;
+
+  &:hover {
+    color: var(--col-base);
+    text-decoration: none;
+    background-color: var(--col-accent);
+  }
+}
+
+ul > li {
+  list-style: none;
+}
+
+button {
+  padding: var(--pad-default);
+  color: var(--col-text);
+  font-family: var(--fnt-general);
+  font-size: 1rem;
+  line-height: 1.25;
+  background: var(--col-base);
+  border: var(--brd-default) solid var(--col-text-trans);
+  transition: all ease-in-out 0.1s;
+
+  &:hover {
+    color: var(--col-accent);
+    border: var(--brd-default) solid var(--col-accent);
+    background: var(--col-accent-trans);
+  }
+}
+.lnk-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--pad-default);
+  color: var(--col-text);
+  font-family: var(--fnt-general);
+  font-size: 1rem;
+  line-height: 1.25;
+  text-decoration: none;
+  background: var(--col-base);
+  border: var(--brd-default) solid var(--col-text-trans);
+  transition: all ease-in-out 0.1s;
+
+  &:hover {
+    color: var(--col-accent);
+    border: var(--brd-default) solid var(--col-accent);
+    background: var(--col-accent-trans);
+    /* color-mix(in srgb, var(--col-accent) 15%, transparent) */
+  }
+}
+
+hr {
+  border: var(--brd-default) solid var(--col-text-trans);
+  border-image: linear-gradient(
+      to right,
+      var(--col-accent-trans),
+      var(--col-text-trans),
+      var(--col-accent-trans)
+    )
+    1;
+}
+
+::selection {
+  color: var(--col-base);
+  background: var(--col-text);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--col-mantle);
+}
+::-webkit-scrollbar-thumb:active {
+  background: var(--col-accent);
+}
+
+:focus-visible {
+  background-color: var(--col-trans-base);
+  outline: 1px solid var(--col-mantle);
+  outline-offset: 0px;
+}
+
+/* basics */
+.flex-column-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.flex-row-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.flex-row-around {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.flex-row-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

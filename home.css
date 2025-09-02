@@ -1,0 +1,167 @@
+#grd-prm {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 175px 175px 175px 350px;
+  grid-template-areas:
+    "a1 a1 net"
+    "a1 a1 cpu"
+    "a1 a1 mem"
+    "lnk a4 a4";
+}
+
+#wnd-a1 {
+  grid-area: a1;
+}
+#wnd-net {
+  grid-area: net;
+}
+#wnd-cpu {
+  grid-area: cpu;
+}
+#wnd-mem {
+  grid-area: mem;
+}
+#wnd-lnk {
+  grid-area: lnk;
+}
+#wnd-a4 {
+  grid-area: a4;
+}
+
+#wnd-a1 .con-wtr {
+  display: flex;
+  width: 100%;
+
+  img {
+    width: 140px;
+    margin: calc(var(--pad-default) / 2) 0 0 calc(var(--pad-default) / 2);
+    border: 5px solid var(--col-text-trans);
+    background: var(--col-accent-trans);
+    filter: sepia() hue-rotate(290deg);
+  }
+
+  .wtr-det {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: calc(var(--pad-default) / 2);
+    width: 100%;
+
+    .det-wrp {
+      display: flex;
+      gap: calc(var(--pad-default) / 2);
+      margin: 0 var(--pad-default);
+      height: 100%;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        width: 100%;
+      }
+
+      .det-lrg {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        width: 100%;
+        line-height: 2.45rem;
+        font-size: 3rem;
+        color: var(--col-accent);
+      }
+      .det-tmp {
+        align-items: flex-start;
+      }
+    }
+
+    hr {
+      margin: 0 calc(var(--pad-default) / 2);
+    }
+  }
+}
+
+#wnd-mem > .wnd-img {
+  width: 100%;
+  height: 35%;
+  object-fit: cover;
+}
+
+#wnd-lnk {
+  .con {
+    gap: calc(var(--pad-default) / 2);
+    padding: calc(var(--pad-default) / 2);
+    height: 100%;
+  }
+
+  .con-lnk {
+    display: flex;
+    justify-content: space-between;
+    gap: calc(var(--pad-default) / 2);
+    height: 100%;
+  }
+
+  .lnk-btn {
+    width: 100%;
+
+    background-image: url("/images/backgrounds/dotted.png");
+    background-position: center;
+    image-rendering: pixelated;
+  }
+}
+
+#wnd-a4 {
+  #con-git {
+    position: relative;
+    padding-left: calc(var(--pad-default) * 1.6);
+  }
+  .git-com {
+    margin-bottom: var(--mrg-default);
+    text-transform: lowercase;
+
+    .git-inf {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 calc(var(--pad-default) / 2);
+      background: linear-gradient(to right, var(--col-accent-trans), var(--col-text-trans));
+    }
+    .git-msg {
+      padding-left: calc(var(--pad-default) / 2);
+    }
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  #con-git::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: calc(var(--pad-default) * 0.4125);
+    width: var(--brd-default);
+    height: 100%;
+    background: var(--col-text-trans);
+  }
+  .git-com::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: var(--col-base);
+    border: 5px solid var(--col-text-trans);
+  }
+}
+
+.test {
+  flex: 1;
+  padding: 0;
+
+  .test-test {
+    width: 100%;
+    height: 100%;
+    background: url("/images/backgrounds/dither.png");
+    background-size: auto 100%;
+    background-position: 3px;
+  }
+}
